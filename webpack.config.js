@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // node_modules/.bin/webpack-dev-server --mode development --hot --inline --progress
 module.exports = {
     mode: 'none',
@@ -18,15 +19,19 @@ module.exports = {
             }
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+          template: path.resolve('./index.html'),
+        }),
+      ],
     output: {
       filename: 'bundle.js',
       sourceMapFilename: '[file].map',
       path: path.resolve(__dirname, 'dist'),
       publicPath:'/'
     },
-    // devServer: {
-    //     contentBase: './dist',
-    //     compress: true,
-    //     port: 9000
-    //   }
+    devServer: {
+        contentBase: './dist',
+        compress: true
+      }
 }

@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import '../style.css'
 export interface HelloProps { 
     compiler: string; 
     framework: string;
@@ -54,27 +54,34 @@ export class Hello extends React.Component<HelloProps, MyState> {
         console.log('permutation', permutation_result)
         return (
             <div>
+                <div className="flex-container">
+                    <div>
+                        <h2>Discrete Math Calculator</h2>
+                        <h3>Combinations and Permutations</h3>
+                        {/* <h3>Hello from {this.props.compiler} and {this.props.framework}!</h3> */}
+                    </div>
+                    <div>
+                        n = <input
+                            type="number"
+                            id="n"
+                            onChange={this.handleChange}
+                            placeholder='n'
+                            />
+                            <br/>
+                        r = <input
+                            type="number"
+                            id="r"
+                            onChange={this.handleChange}
+                            placeholder='r'
+                            />
 
-                <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>
-                <h3>Hi there welcome</h3>
-                <br/>
-                n=<input
-                    type="number"
-                    id="n"
-                    onChange={this.handleChange}
-                    placeholder='n'
-                    />
+                    </div>
+                <div>
+                    permutation = {permutation_result}
                     <br/>
-                r=<input
-                    type="number"
-                    id="r"
-                    onChange={this.handleChange}
-                    placeholder='r'
-                    />
-                    <br/>
-                    permutation={permutation_result}
-                    <br/>
-                    combination={combination_result}
+                    combination = {combination_result}
+                </div>
+                    </div>
             </div>
         )
     }

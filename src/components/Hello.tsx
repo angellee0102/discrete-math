@@ -1,5 +1,6 @@
 import * as React from "react";
 import '../style.css'
+import Calculator from './Calculator'
 export interface HelloProps { 
     compiler: string; 
     framework: string;
@@ -21,37 +22,23 @@ export class Hello extends React.Component<HelloProps, MyState> {
             r: 3
         }
     }
-    permutation = (n, r)  => {
-        let output = 1;
-        for (let i = 0; i < r; i++){
-            output = output * n
-            n = n -1
-        }
-        return output
-    }
-    combination = (n,r) =>{
-        let output = 1;
-        for (let i=0;i<r;i++){
-            output = output * n
-            n = n - 1
-        }
-        let divider = 1;
-        for (let i=0;i<r;i++){
-            divider= divider * r
-            r = r - 1
-        }
-        output=output/divider
-        return output;
-    }
     handleChange = e => {
         this.setState<never>({
           [e.target.id]: e.target.value
         });
       };
+    buttonPlus = e =>{
+        this.setState<never>({
+            [e.target.id]: Number(e.target.value)+1
+        })
+    }
+    buttonMinus = e =>{
+        this.setState<never>({
+            [e.target.id]: Number(e.target.value)-1
+        })
+    }
     render() {
-        const permutation_result=this.permutation(this.state.n,this.state.r)
-        const combination_result=this.combination(this.state.n,this.state.r)
-        console.log('permutation', permutation_result)
+        
         return (
             <div>
                 <div className="flex-container">
@@ -66,20 +53,37 @@ export class Hello extends React.Component<HelloProps, MyState> {
                             id="n"
                             onChange={this.handleChange}
                             placeholder='n'
+                            min={1}
+                            value={this.state.n}
                             />
+                            <button id="n" value={this.state.n} onClick={this.buttonPlus}>
+                                Plus
+                            </button>
+                            <button id="n" value={this.state.n} onClick={this.buttonMinus}>
+                                Minus
+                            </button>
                             <br/>
                         r = <input
                             type="number"
                             id="r"
                             onChange={this.handleChange}
                             placeholder='r'
+                            min={0}
+                            value={this.state.r}
                             />
+                             <button id="r" value={this.state.r} onClick={this.buttonPlus}>
+                                Plus
+                            </button>
+                            <button id="r" value={this.state.r} onClick={this.buttonMinus}>
+                                Minus
+                            </button>
 
                     </div>
                 <div>
-                    permutation = {permutation_result}
-                    <br/>
-                    combination = {combination_result}
+                    <Calculator 
+                        n={this.state.n}
+                        r={this.state.r}
+                    />     
                 </div>
                     </div>
             </div>

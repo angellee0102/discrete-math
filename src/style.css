@@ -7,12 +7,34 @@
     margin: 10px;
     width: 90%;
     text-align: center;
-    line-height: 75px;
-    font-size: 30px;
+    line-height: 40px;
+    font-size: 24px;
 }
 input[type=number] {
-    width: 80%;
+    width: 50%;
     padding: 15px 22px;
     margin: 10px 5px;
     box-sizing: border-box;  
+}
+.button-plus{
+    border: 2px solid lightgrey;
+	background-color: #fff;
+	font-size: 16px;
+	height: 2.5em;
+	width: 2.5em;
+	border-radius: 999px;
+    position: relative;
+    
+}
+.button-plus :hover{
+    background-color: green;
+}
+.button-minus{
+    border: 2px solid lightgrey;
+	background-color: #fff;
+	font-size: 16px;
+	height: 2.5em;
+	width: 2.5em;
+	border-radius: 999px;
+	position: relative;
 }

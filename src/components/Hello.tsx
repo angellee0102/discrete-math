@@ -56,11 +56,11 @@ export class Hello extends React.Component<HelloProps, MyState> {
                             min={1}
                             value={this.state.n}
                             />
-                            <button id="n" value={this.state.n} onClick={this.buttonPlus}>
-                                Plus
+                            <button className='button-plus' id="n" value={this.state.n} onClick={this.buttonPlus}>
+                                +
                             </button>
-                            <button id="n" value={this.state.n} onClick={this.buttonMinus}>
-                                Minus
+                            <button className='button-minus'id="n" value={this.state.n} onClick={this.buttonMinus}>
+                                -
                             </button>
                             <br/>
                         r = <input
@@ -71,11 +71,11 @@ export class Hello extends React.Component<HelloProps, MyState> {
                             min={0}
                             value={this.state.r}
                             />
-                             <button id="r" value={this.state.r} onClick={this.buttonPlus}>
-                                Plus
+                             <button className='button-plus'id="r"value={this.state.r} onClick={this.buttonPlus}>
+                                +
                             </button>
-                            <button id="r" value={this.state.r} onClick={this.buttonMinus}>
-                                Minus
+                            <button className='button-minus' id="r" value={this.state.r} onClick={this.buttonMinus}>
+                                -
                             </button>
 
                     </div>

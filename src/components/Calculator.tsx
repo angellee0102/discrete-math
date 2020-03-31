@@ -35,17 +35,7 @@ export default class Calculator extends React.Component <MyProps,{}>{
         return output;
     }
     selectionWithRepetition = (n, r) => {
-        let output = 1;
-        for (let i=0;i<r;i++){
-            output = output * (n+r-1)
-            n = n - 1
-        }
-        let divider = 1;
-        for (let i=0;i<r;i++){
-            divider= divider * r
-            r = r - 1
-        }
-        output=output/divider
+        let output=this.combination((Number(n)+r)-1,r)
         return output;
     }
     render() {

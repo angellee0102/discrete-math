@@ -86,7 +86,7 @@ export class Hello extends React.Component<HelloProps, MyState> {
                     />     
                 </div>
                     </div>
-                    <footer>Posted by Angel Lee, 2020.03</footer>
+                    <footer>by Angel Lee, 2020.03.31</footer>
             </div>
         )
     }

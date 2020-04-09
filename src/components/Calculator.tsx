@@ -15,14 +15,16 @@ export default class Calculator extends React.Component <MyProps,{}>{
     }
     combination = (n,r) =>{
         let output = 1;
-        for (let i=0;i<r;i++){
-            output = output * n
-            n = n - 1
+        if (r > n)return 0
+        for (let i = 1; i < (n+1); i++){
+            output = output * i
         }
         let divider = 1;
-        for (let i=0;i<r;i++){
-            divider= divider * r
-            r = r - 1
+        for (let i = 1; i < (r+1); i++){
+            divider = divider * i
+        }
+        for (let i = 1; i < (Number(n-r)+1);i++){
+            divider = divider * i
         }
         output=output/divider
         return output;

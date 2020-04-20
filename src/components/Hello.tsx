@@ -62,7 +62,7 @@ export class Hello extends React.Component<HelloProps, MyState> {
                                 -
                             </button>
                             <br/>
-                        r = <input
+                        r / m = <input
                             type="number"
                             id="r"
                             onChange={this.handleChange}

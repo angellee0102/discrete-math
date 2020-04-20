@@ -44,7 +44,6 @@ export class Hello extends React.Component<HelloProps, MyState> {
                 <div className="flex-container">
                     <div>
                         <h2>Discrete Math Calculator</h2>
-                        <h3>Combinations and Permutations</h3>
                         {/* <h3>Hello from {this.props.compiler} and {this.props.framework}!</h3> */}
                     </div>
                     <div>
@@ -79,14 +78,17 @@ export class Hello extends React.Component<HelloProps, MyState> {
                             </button>
 
                     </div>
-                <div>
-                    <Calculator 
-                        n={this.state.n}
-                        r={this.state.r}
-                    />     
-                </div>
+                    <div>
+                        <Calculator 
+                            n={this.state.n}
+                            r={this.state.r}
+                        />     
                     </div>
-                    <footer>by Angel Lee, 2020.03.31</footer>
+                </div>
+                <div className="footer">
+                    2020 Angel Lee:
+                    <a href="https://github.com/angellee0102/discrete-math"> GitHub repo</a>
+                </div>
             </div>
         )
     }

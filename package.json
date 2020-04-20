@@ -5,9 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot",
-    "build": "webpack --mode production",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "start": "webpack-dev-server --mode development --hot --inline --progress",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",

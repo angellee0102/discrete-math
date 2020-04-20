@@ -43,7 +43,7 @@ export class Hello extends React.Component<HelloProps, MyState> {
             <div>
                 <div className="flex-container">
                     <div>
-                        <h2>Discrete Math Calculator</h2>
+                        <h3>Discrete Math Calculator</h3>
                         {/* <h3>Hello from {this.props.compiler} and {this.props.framework}!</h3> */}
                     </div>
                     <div>

@@ -97,32 +97,37 @@ export default class Calculator extends React.Component <MyProps,{}>{
         const eulerian_result=this.eulerian(this.props.n, this.props.r)
         const stirling_result=this.stirling(this.props.n, this.props.r)
         return (
-            <div>
-              <h3>With respect to n and r</h3>
-               permutation = {permutation_result}
-                <br/>
-                combination = {combination_result}
-                <br/>
-                n^r = {arrangementWithRepetition_result}
-                <br/>
-                C(r+n-1, r) = {selectionWithRepetition_result}
+            <div className='flex-container-Calculator'>
+                <div>
+                    <h4>With (n, r)=({this.props.n}, {this.props.r})</h4>
+                    permutation = {permutation_result}
+                    <br/>
+                    combination = {combination_result}
+                    <br/>
+                    n^r = {arrangementWithRepetition_result}
+                    <br/>
+                    C(r+n-1, r) = {selectionWithRepetition_result}
+                </div>
 
-                <h3>With respect to n</h3>
-                The {this.props.n}th Catalan = {catalan_result}
-                <br/>
-                The {this.props.n}th Triangular number = {triangular_result}
-                <br/>
-                The {this.props.n}th Harmonic number = {harmonic_result}
-                <br/>
-                The {this.props.n}th Fibonacci number = {fibonacci_result}
-                <br/>
-                The {this.props.n}th Lucas number = {lucas_result}
-                <h3>With respect to n and m</h3>
-                Eulerian numbers with (n,m) == ({this.props.n},{this.props.r})  result = {eulerian_result}
-                <br/>
-                Stirling numbers of the second kind with (n,m) == ({this.props.n},{this.props.r})  result = {stirling_result}
+                <div>
+                    <h4>With n = {this.props.n}</h4>
+                    The {this.props.n}th Catalan = {catalan_result}
+                    <br/>
+                    The {this.props.n}th Triangular number = {triangular_result}
+                    <br/>
+                    The {this.props.n}th Harmonic number = {harmonic_result.toFixed(4)}
+                    <br/>
+                    The {this.props.n}th Fibonacci number = {fibonacci_result}
+                    <br/>
+                    The {this.props.n}th Lucas number = {lucas_result}
+                </div>
 
-                {/* (4) Stirling number of the second kind with respect to m, n for 1<=n<=m (i.e., S_sub(m,1), S_sub(m,2), ... , a_sub(m,m) ) */} 
+                <div>
+                    <h4>With (n, m) = ({this.props.n}, {this.props.r})</h4>
+                    Eulerian numbers = {eulerian_result}
+                    <br/>
+                    Stirling numbers of the 2nd kind  = {stirling_result}
+                </div>
             </div>
         )
     }

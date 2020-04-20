@@ -10,6 +10,18 @@
     line-height: 40px;
     font-size: 24px;
 }
+.flex-container-Calculator{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.flex-container-Calculator > div {
+    margin: 5px;
+    width: 48%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 24px;
+}
 input[type=number] {
     width: 50%;
     padding: 15px 22px;
@@ -40,6 +52,9 @@ input[type=number] {
 }
 .footer{ 
   padding: 1rem;
+  bottom:0;
+  width:100%;
+  position: absolute;
   background-color: #efefef;
   text-align: center;
   }

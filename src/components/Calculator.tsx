@@ -70,6 +70,7 @@ export default class Calculator extends React.Component <MyProps,{}>{
         return (this.nthFibonacci(n-1)+this.nthFibonacci(n-2))
     }
     nthLucas=(n)=>{
+        if (n < 0)return 0
         if (n == 0)return 2;
         if (n == 1)return 1;
         return (this.nthLucas(n-1)+this.nthLucas(n-2))
@@ -77,11 +78,13 @@ export default class Calculator extends React.Component <MyProps,{}>{
     eulerian=(n,m)=>{
         if (m >= n || n == 0)return 0;
         if (m == 0)return 1;
+        if (n <= 1)return 0;
         return ((n-m)*this.eulerian(n-1, m-1) 
                 + (m+1)*this.eulerian(n-1,m))
     }
     stirling=(n,k)=>{
-        if (k == 1 || k == n)return 1;
+        if (n <= 1)return 1;
+        if (k <= 1 || k == n)return 1;
         return (this.stirling(n-1,k-1)+k*this.stirling(n-1,k))
     }
     render() {
@@ -89,11 +92,11 @@ export default class Calculator extends React.Component <MyProps,{}>{
         const combination_result=this.combination(this.props.n, this.props.r)
         const arrangementWithRepetition_result=this.arrangementWithRepetition(this.props.n, this.props.r)
         const selectionWithRepetition_result=this.selectionWithRepetition(this.props.n, this.props.r)
-        const catalan_result=this.props.n>17?'Please choose a smaller n':this.nthCatalan(this.props.n)
-        const triangular_result=this.nthTriangular(this.props.n)
-        const harmonic_result=this.nthHarmonic(this.props.n)
-        const fibonacci_result=this.nthFibonacci(this.props.n)
-        const lucas_result=this.nthLucas(this.props.n)
+        const catalan_result=this.props.n<1 ? 'NaN' : this.props.n>17?'Please choose a smaller n':this.nthCatalan(this.props.n)
+        const triangular_result=this.props.n<1 ? 'NaN' : this.nthTriangular(this.props.n)
+        const harmonic_result=this.props.n<1 ? 'NaN' : this.nthHarmonic(this.props.n).toFixed(4)
+        const fibonacci_result=this.props.n<1 ? 'NaN' : this.nthFibonacci(this.props.n)
+        const lucas_result=this.props.n<1 ? 'NaN' : this.nthLucas(this.props.n)
         const eulerian_result=this.eulerian(this.props.n, this.props.r)
         const stirling_result=this.stirling(this.props.n, this.props.r)
         return (
@@ -115,7 +118,7 @@ export default class Calculator extends React.Component <MyProps,{}>{
                     <br/>
                     The {this.props.n}th Triangular number = {triangular_result}
                     <br/>
-                    The {this.props.n}th Harmonic number = {harmonic_result.toFixed(4)}
+                    The {this.props.n}th Harmonic number = {harmonic_result}
                     <br/>
                     The {this.props.n}th Fibonacci number = {fibonacci_result}
                     <br/>

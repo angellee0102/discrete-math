@@ -14,6 +14,7 @@ export default class Calculator extends React.Component <MyProps,{}>{
         return output
     }
     combination = (n,r) =>{
+        n = Number(n)
         let output = 1;
         if (r > n)return 0
         for (let i = 1; i < (n+1); i++){
@@ -85,20 +86,28 @@ export default class Calculator extends React.Component <MyProps,{}>{
     stirling=(n,k)=>{
         if (n <= 1)return 1;
         if (k <= 1 || k == n)return 1;
-        return (this.stirling(n-1,k-1)+k*this.stirling(n-1,k))
+        return (this.stirling(n-1,k-1) + k*this.stirling(n-1,k))
     }
     render() {
-        const permutation_result=this.permutation(this.props.n, this.props.r)
-        const combination_result=this.combination(this.props.n, this.props.r)
-        const arrangementWithRepetition_result=this.arrangementWithRepetition(this.props.n, this.props.r)
-        const selectionWithRepetition_result=this.selectionWithRepetition(this.props.n, this.props.r)
-        const catalan_result=this.props.n<1 ? 'NaN' : this.props.n>17?'Please choose a smaller n':this.nthCatalan(this.props.n)
-        const triangular_result=this.props.n<1 ? 'NaN' : this.nthTriangular(this.props.n)
-        const harmonic_result=this.props.n<1 ? 'NaN' : this.nthHarmonic(this.props.n).toFixed(4)
-        const fibonacci_result=this.props.n<1 ? 'NaN' : this.nthFibonacci(this.props.n)
-        const lucas_result=this.props.n<1 ? 'NaN' : this.nthLucas(this.props.n)
-        const eulerian_result=this.eulerian(this.props.n, this.props.r)
-        const stirling_result=this.stirling(this.props.n, this.props.r)
+        let n = Number(this.props.n)
+        let r = Number(this.props.r)
+        const permutation_result=this.permutation(n, r)
+        const combination_result=this.combination(n, r)
+        const arrangementWithRepetition_result=this.arrangementWithRepetition(n, r)
+        const selectionWithRepetition_result=this.selectionWithRepetition(n, r)
+        const catalan_result = n<1 ? 'NaN' : n>17?'Please choose a smaller n':this.nthCatalan(n)
+        const triangular_result = n<1 ? 'NaN' : this.nthTriangular(n)
+        const harmonic_result = n<1 ? 'NaN' : this.nthHarmonic(n).toFixed(4)
+        const fibonacci_result = n<1 ? 'NaN' : n>35?'Please choose a smaller n':this.nthFibonacci(n)
+        const lucas_result = n<1 ? 'NaN' : n>35?'Please choose a smaller n': this.nthLucas(n)
+        const eulerian_result=n<1 ? 'NaN': r>6?'Please choose a smaller r':this.eulerian(n, r)
+        var t0 = performance.now()
+        
+        const stirling_result=n<1 ? 'NaN': r>7?'Please choose a smaller r':this.stirling(n, r)
+        var t1 = performance.now()
+        console.log("Call to stirling took " + (t1 - t0) + " milliseconds.")
+        
+        
         return (
             <div className='flex-container-Calculator'>
                 <div>
@@ -126,7 +135,7 @@ export default class Calculator extends React.Component <MyProps,{}>{
                 </div>
 
                 <div>
-                    <h4>With (n, m) = ({this.props.n}, {this.props.r})</h4>
+                    <h4>With (n, r) = ({this.props.n}, {this.props.r})</h4>
                     Eulerian numbers = {eulerian_result}
                     <br/>
                     Stirling numbers of the 2nd kind  = {stirling_result}

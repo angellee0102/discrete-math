@@ -37,7 +37,7 @@ input[type=number] {
 	width: 2.5em;
 	border-radius: 999px;
     position: relative;
-    
+    cursor: pointer;
 }
 .button-plus:hover{
     background-color: skyblue;
@@ -52,15 +52,19 @@ input[type=number] {
 	height: 2.5em;
 	width: 2.5em;
 	border-radius: 999px;
-	position: relative;
+    position: relative;
+    cursor: pointer;
 }
 .button-current-view{
-    padding: 4px;
-    width: 25%;
-    
-    margin-bottom: 5px;
+    padding: 6px;
+    width: 20%;
+    font-size: 20px;
     background-color: #7fcae6;
     color: #ffffff;
+    cursor: pointer;
+}
+.button-current-view:hover{
+    background-color: #2342ce;
 }
 .footer{ 
   padding: 1rem;

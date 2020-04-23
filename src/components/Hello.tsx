@@ -73,7 +73,7 @@ export class Hello extends React.Component<HelloProps, MyState> {
                                 -
                             </button>
                             <br/>
-                        r or m = <input
+                        r =  <input
                             type="number"
                             id="r"
                             onChange={this.handleChange}
@@ -92,8 +92,7 @@ export class Hello extends React.Component<HelloProps, MyState> {
                         <button className='button-current-view' id="Calculator" onClick={this.setCurrentview}>
                         Calculation
                         </button>
-                        <br/>
-                        <br/>
+                         
                         <button className='button-current-view' id="Formula" onClick={this.setCurrentview}>
                         Formula
                         </button>

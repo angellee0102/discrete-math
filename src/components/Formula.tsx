@@ -31,6 +31,11 @@ export default class Formula extends React.Component {
                     Stirling numbers of the 2nd kind: S(n,r) = S(n-1, r-1) + r * S(n-1,r)
 
                 </div>
+                <div className="footer">
+                last updated 2020.04.24 by Angel Lee  
+                <a> </a>
+                <a href="https://github.com/angellee0102/discrete-math">GitHub repo</a>
+            </div>
             </div>
         )
     }

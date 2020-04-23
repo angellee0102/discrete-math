@@ -101,14 +101,16 @@ export default class Calculator extends React.Component <MyProps,{}>{
         const fibonacci_result = n<1 ? 'NaN' : n>35?'Please choose a smaller n':this.nthFibonacci(n)
         const lucas_result = n<1 ? 'NaN' : n>35?'Please choose a smaller n': this.nthLucas(n)
         const eulerian_result=n<1 ? 'NaN': r>6?'Please choose a smaller r':this.eulerian(n, r)
+        const stirling_result=n<1 ? 'NaN': r>7?'Please choose a smaller r':this.stirling(n, r)
         var t0 = performance.now()
         
-        const stirling_result=n<1 ? 'NaN': r>7?'Please choose a smaller r':this.stirling(n, r)
         var t1 = performance.now()
-        console.log("Call to stirling took " + (t1 - t0) + " milliseconds.")
+        // console.log("Call to stirling took " + (t1 - t0) + " milliseconds.")
         
         
         return (
+            <div>
+
             <div className='flex-container-Calculator'>
                 <div>
                     <h4>With (n, r)=({this.props.n}, {this.props.r})</h4>
@@ -140,6 +142,12 @@ export default class Calculator extends React.Component <MyProps,{}>{
                     <br/>
                     Stirling numbers of the 2nd kind  = {stirling_result}
                 </div>
+            </div>
+            <div className="footer">
+                last updated 2020.04.24 by Angel Lee  
+                <a> </a>
+                <a href="https://github.com/angellee0102/discrete-math">GitHub repo</a>
+            </div>
             </div>
         )
     }
